@@ -1,0 +1,7 @@
+iot module
+==========
+
+.. automodule:: iot
+    :members:
+    :undoc-members:
+    :show-inheritance:

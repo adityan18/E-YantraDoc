@@ -1,0 +1,317 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html4" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>iot module &mdash; Task 5  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="node_action_server_ros_iot_bridge module" href="node_action_server_ros_iot_bridge.html" />
+    <link rel="prev" title="pkg_ros_iot_bridge" href="modules.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Task 5
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../task5_rst/modules.html">pkg_task5</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">pkg_ros_iot_bridge</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">iot module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="node_action_server_ros_iot_bridge.html">node_action_server_ros_iot_bridge module</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Task 5</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="modules.html">pkg_ros_iot_bridge</a> &raquo;</li>
+        
+      <li>iot module</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../_sources/ros_iot_bridge_rst/iot.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="module-iot">
+<span id="iot-module"></span><h1>iot module<a class="headerlink" href="#module-iot" title="Permalink to this headline">¶</a></h1>
+<dl class="function">
+<dt id="iot.iot_func_callback_sub">
+<code class="descclassname">iot.</code><code class="descname">iot_func_callback_sub</code><span class="sig-paren">(</span><em>client</em>, <em>userdata</em>, <em>message</em><span class="sig-paren">)</span><a class="headerlink" href="#iot.iot_func_callback_sub" title="Permalink to this definition">¶</a></dt>
+<dd><p>Callback Function for MQTT subscription</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd>client ():
+userdata (str):
+message (str): contains the message from topic</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="iot.mqtt_publish">
+<code class="descclassname">iot.</code><code class="descname">mqtt_publish</code><span class="sig-paren">(</span><em>arg_broker_url</em>, <em>arg_broker_port</em>, <em>arg_mqtt_topic</em>, <em>arg_mqtt_message</em>, <em>arg_mqtt_qos</em><span class="sig-paren">)</span><a class="headerlink" href="#iot.mqtt_publish" title="Permalink to this definition">¶</a></dt>
+<dd><p>MQTT Publisher</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd>arg_callback_func (function): callback function
+arg_broker_url (str): broker url
+arg_broker_port (int): broker port
+arg_mqtt_topic (string): mqtt topic
+arg_mqtt_qos (int): mqtt qos</dd>
+<dt>Returns:</dt>
+<dd>int: 0 or -1</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="iot.mqtt_subscribe_thread_start">
+<code class="descclassname">iot.</code><code class="descname">mqtt_subscribe_thread_start</code><span class="sig-paren">(</span><em>arg_callback_func</em>, <em>arg_broker_url</em>, <em>arg_broker_port</em>, <em>arg_mqtt_topic</em>, <em>arg_mqtt_qos</em><span class="sig-paren">)</span><a class="headerlink" href="#iot.mqtt_subscribe_thread_start" title="Permalink to this definition">¶</a></dt>
+<dd><p>Subscriber thread for MQTT topic</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd>arg_callback_func (function): callback function
+arg_broker_url (str): broker url
+arg_broker_port (int): broker port
+arg_mqtt_topic (string): mqtt topic
+arg_mqtt_qos (int): mqtt qos</dd>
+<dt>Returns:</dt>
+<dd>int: 0 or -1</dd>
+</dl>
+</dd></dl>
+
+<dl class="class">
+<dt id="iot.print_colour">
+<em class="property">class </em><code class="descclassname">iot.</code><code class="descname">print_colour</code><a class="headerlink" href="#iot.print_colour" title="Permalink to this definition">¶</a></dt>
+<dd><p>Different Colors to be shown on terminal</p>
+<dl class="attribute">
+<dt id="iot.print_colour.BOLD">
+<code class="descname">BOLD</code><em class="property"> = '\x1b[1m'</em><a class="headerlink" href="#iot.print_colour.BOLD" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="iot.print_colour.ENDC">
+<code class="descname">ENDC</code><em class="property"> = '\x1b[0m'</em><a class="headerlink" href="#iot.print_colour.ENDC" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="iot.print_colour.FAIL">
+<code class="descname">FAIL</code><em class="property"> = '\x1b[91m'</em><a class="headerlink" href="#iot.print_colour.FAIL" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="iot.print_colour.HEADER">
+<code class="descname">HEADER</code><em class="property"> = '\x1b[95m'</em><a class="headerlink" href="#iot.print_colour.HEADER" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="iot.print_colour.OKBLUE">
+<code class="descname">OKBLUE</code><em class="property"> = '\x1b[94m'</em><a class="headerlink" href="#iot.print_colour.OKBLUE" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="iot.print_colour.OKGREEN">
+<code class="descname">OKGREEN</code><em class="property"> = '\x1b[92m'</em><a class="headerlink" href="#iot.print_colour.OKGREEN" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="iot.print_colour.UNDERLINE">
+<code class="descname">UNDERLINE</code><em class="property"> = '\x1b[4m'</em><a class="headerlink" href="#iot.print_colour.UNDERLINE" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="iot.print_colour.WARNING">
+<code class="descname">WARNING</code><em class="property"> = '\x1b[93m'</em><a class="headerlink" href="#iot.print_colour.WARNING" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="function">
+<dt id="iot.push_ss">
+<code class="descclassname">iot.</code><code class="descname">push_ss</code><span class="sig-paren">(</span><em>parameters</em><span class="sig-paren">)</span><a class="headerlink" href="#iot.push_ss" title="Permalink to this definition">¶</a></dt>
+<dd><p>Used to push data to Google spreadsheet</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd>parameters (dict): get request parameters</dd>
+</dl>
+</dd></dl>
+
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="node_action_server_ros_iot_bridge.html" class="btn btn-neutral float-right" title="node_action_server_ros_iot_bridge module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="modules.html" class="btn btn-neutral float-left" title="pkg_ros_iot_bridge" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2021, 0393.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
