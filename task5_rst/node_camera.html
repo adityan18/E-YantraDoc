@@ -1,0 +1,291 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html4" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>node_camera module &mdash; Task 5  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="node_conveyor module" href="node_conveyor.html" />
+    <link rel="prev" title="RepMeth module" href="RepMeth.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Task 5
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">pkg_task5</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="RepMeth.html">RepMeth module</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">node_camera module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="node_conveyor.html">node_conveyor module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="node_sub_mqtt_client.html">node_sub_mqtt_client module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="node_ur5_1.html">node_ur5_1 module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="node_ur5_2.html">node_ur5_2 module</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../ros_iot_bridge_rst/modules.html">pkg_ros_iot_bridge</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Task 5</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="modules.html">pkg_task5</a> &raquo;</li>
+        
+      <li>node_camera module</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../_sources/task5_rst/node_camera.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="module-node_camera">
+<span id="node-camera-module"></span><h1>node_camera module<a class="headerlink" href="#module-node_camera" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="node_camera.Camera1">
+<em class="property">class </em><code class="descclassname">node_camera.</code><code class="descname">Camera1</code><a class="headerlink" href="#node_camera.Camera1" title="Permalink to this definition">¶</a></dt>
+<dd><p>A class to represent camera module</p>
+<dl class="method">
+<dt id="node_camera.Camera1.callback">
+<code class="descname">callback</code><span class="sig-paren">(</span><em>data</em><span class="sig-paren">)</span><a class="headerlink" href="#node_camera.Camera1.callback" title="Permalink to this definition">¶</a></dt>
+<dd><p>Callback function for 2D Camera topic</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd>data (list): Image array</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="node_camera.Camera1.get_dominant_colour">
+<code class="descname">get_dominant_colour</code><span class="sig-paren">(</span><em>arg_img</em><span class="sig-paren">)</span><a class="headerlink" href="#node_camera.Camera1.get_dominant_colour" title="Permalink to this definition">¶</a></dt>
+<dd><p>Function to get dominant color from image</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd>arg_img (list): Image array</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="node_camera.Camera1.split_img">
+<code class="descname">split_img</code><span class="sig-paren">(</span><em>arg_img</em><span class="sig-paren">)</span><a class="headerlink" href="#node_camera.Camera1.split_img" title="Permalink to this definition">¶</a></dt>
+<dd><p>Divides image into cells</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd>arg_img (list): Image array</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="node_camera.InventoryClient">
+<em class="property">class </em><code class="descclassname">node_camera.</code><code class="descname">InventoryClient</code><a class="headerlink" href="#node_camera.InventoryClient" title="Permalink to this definition">¶</a></dt>
+<dd><p>A class to for Inventory Client</p>
+<dl class="method">
+<dt id="node_camera.InventoryClient.get_time_str">
+<code class="descname">get_time_str</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#node_camera.InventoryClient.get_time_str" title="Permalink to this definition">¶</a></dt>
+<dd><p>Generates time string</p>
+<dl class="docutils">
+<dt>Returns:</dt>
+<dd>str: Time String</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="node_camera.InventoryClient.pub_mqtt">
+<code class="descname">pub_mqtt</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#node_camera.InventoryClient.pub_mqtt" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sends a goal to Action Server</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="node_camera.InventoryClient.push">
+<code class="descname">push</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#node_camera.InventoryClient.push" title="Permalink to this definition">¶</a></dt>
+<dd><p>Function to publish all data to mqtt topic</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="function">
+<dt id="node_camera.main">
+<code class="descclassname">node_camera.</code><code class="descname">main</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#node_camera.main" title="Permalink to this definition">¶</a></dt>
+<dd><p>Object Creation main execution of node</p>
+</dd></dl>
+
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="node_conveyor.html" class="btn btn-neutral float-right" title="node_conveyor module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="RepMeth.html" class="btn btn-neutral float-left" title="RepMeth module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2021, 0393.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
