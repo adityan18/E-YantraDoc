@@ -1,0 +1,15 @@
+Config
+------
+
+Parameters
+~~~~~~~~~~
+
+*   config_pyiot.yaml
+        It contains the ROS parameters for MQTT communication
+            *   server url: /http://www.hivemq.com/demos/websocket-client/
+            *   server port: 1883
+            *   topic_sub
+            *   topic_pub
+            *   qos: Quality of service
+            *   sub_cb_ros_topic: ROS nodes can listen to this topic to receive data from MQTT
+            *   spread_sheet_id: Google Apps spreadsheet ID

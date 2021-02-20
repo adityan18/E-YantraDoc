@@ -1,0 +1,144 @@
+Implementation
+==============
+
+Files
+~~~~~
+
+Before we look at the implementation of the entire task, we must understand the implementation of each node individually first.
+
+* pkg_task5 package:
+
+    *   Nodes:
+
+            `RepMeth.py <task5_rst/RepMeth.html>`_
+                It is an action client class that is reused by several nodes whenever there is a need to send a goal to the action server.
+
+            `node_camera.py <task5_rst/node_camera.html>`_
+                This node consists of 2 classes.
+                The first class, Camera1, handles the identification of packages in the inventory (shelf).
+
+                *   It splits the image obtained by the camera 1 into 12 parts, each capturing one of the boxes in the shelf.
+                *   It then finds the most dominant colour in each part (which is essentially the colour of the box), and stores all the colours in a dictionary in the format
+
+                        pkg_det['models'][<name>], where <name> is the name of the package (For example, packagen00,packagen01,etc)
+
+                        It then puts the contents of this dictionary into the parameter server using the method set_param.
+
+                The second class is the InventoryClient class.
+
+                *   It gets the models/colour information from the parameter server(which was updated by the Camera1 class)
+                *   It initializes all the necessary details such as priority, item(type), code, cost,etc.
+                *   It sends goals for each of the 12 boxes to the action server (node_action_server_ros_iot_bridge.py),
+                    which processes the goal and updates the inventory spreadsheet.
+
+            `node_conveyor.py <task5_rst/node_conveyor.html>`_
+                This node is used to move or halt the conveyor belt.
+                It also obtains messages from the logical camera.
+
+                *   The logical camera focuses on the conveyor belt in front of ur5_2. Every time it finds a model, it calls its corresponding callback function.
+                *   The callback function makes sure that the detected model is a package by comparing it to the known model names,
+                    and also makes sure that the packages detected are in the correct spot so that the ur5_2 can easily pick it.
+
+            `node_sub_mqtt_client.py <task5_rst/node_sub_mqtt_client.html>`_
+                This node subscribes to the mqtt topic for messages. These messages are the orders for packages. When the message is received,
+                it extracts the needed information from the payload, and stores it in the parameter server.
+                (In subsequent orders, it obtains the order array from the parameter server and appends the current order to it,
+                and then re stores it in the parameter server)
+                Using the payload, it then sends goals to an action server on obtaining an mqtt message in order to update the 'incoming orders' spreadsheet.
+
+            `node_ur5_1.py <task5_rst/node_ur5_1.html>`_
+                This node has multiple objectives. However, its main objective is to look after the movement of ur5_1
+                which picks packages from the shelf and puts them on the conveyor belt.
+
+                *   It initializes all the important parameters related to controlling ur5_1 such as planning group, end effector link, scene, etc.
+                *   It initializes the vacuum gripper for ur5_1.
+                *   It obtains the orders sent by the mqtt client from the parameter server (stored here previously).
+                    It sorts these based on priority and completes each order accordingly.
+                *   Depending on the item type specified by the order (Medicine, food or clothing), the ur5_1 picks up a package and puts it on the conveyor belt.
+                    The trajectory of the ur5 to and from each package is saved inn a yaml file and played whenever needed.
+                *   After dropping the package on the belt, it removes the respective order from the local order list,
+                    and sends a goal to an action server to update the Orders Dispatched sheet.
+
+            `node_ur5_2.py <task5_rst/node_ur5_2.html>`_
+                This node is used to control the ur5_2 arm, which picks the packages from the conveyor belt and puts them in the required bin.
+
+                *   It initializes all the important parameters related to controlling ur5_2 such as planning group, end effector link, scene, etc.
+                *   It initializes the vacuum gripper for ur5_1.
+                *   When the package moves to the desired location on the conveyor belt, the belt is stopped.
+                    The arm moves to the desired location on top of the package using a pre defined trajectory, picks up the package and moves to one of the 3 bins
+                    based on the colour of the package. It then drops the package into the bin.
+                *   After dropping the package in the bin, it sends a goal to an action server to update the Orders Shipped sheet.
+    *   Launch files:
+
+            :task5_solution.launch:
+                This launch file launches the gazebo and rviz environments for task 5. It also launches the ros_iot_bridge.launch file, which will be discussed later.
+                It is also used to start the following nodes when the rviz and gazebo environments start up:
+
+                *   node_camera
+                *   node_sub_mqtt_client
+                *   node_ur5_1
+                *   node_ur5_2
+                *   node_conveyor
+    *   Config:
+
+            `rviz folder <task5_rst/config.html>`_
+                Contains the shelf file for rviz environment
+            `saved_trajectories folder <task5_rst/config.html>`_
+                Contains the YAML files for all the saved trajectories needed to move the ur5_1 and ur5_2.
+
+*   pkg_ros_iot_bridge package
+
+    *   Nodes:
+
+            `iot.py <ros_iot_bridge_rst/iot.html>`_
+                    Initializes method to push the required data onto a spreadsheet.
+                    It accepts the different parameters that are to be published on the sheet and also the name of the sheet.
+            `node_action_server_ros_iot_bridge <ros_iot_bridge_rst/node_action_server_ros_iot_bridge.html>`_
+                    This node handles all the goals being sent by various nodes.
+                    Depending on the type of goal sent to the node, it may process it in 4 different ways:
+
+                    *   For Inventory
+                    *   For Incoming Orders
+                    *   For Orders Dispatched
+                    *   For Orders Shipped
+
+                    It initializes all the necessary parameters for each category and pushes it to the spreadsheet using the push_ss method from iot.py node.
+
+    *   Launch files:
+
+        :ros_iot_bridge.launch:
+
+            *   Loads parameters into the parameter server for MQTT
+            *   Starts the node_action_server_ros_iot_bridge node.
+    *   Config:
+
+        `config_pyiot.yaml <ros_iot_bridge_rst/config.html>`_
+                Launches several parameters needed for MQTT communication into the parameter server (such as mqtt subscription topic, mqtt publishing topic, etc)
+
+
+Working
+~~~~~~~
+
+By launching the task5_solution.launch launch file, all the necessary nodes and launch files are started. The node_camera.py node identifies the packages on the shelf
+and stores the necessary values (it maps model name with its colour and stores it in a dictionary) in the parameter server. As the packages are identified, the 'Inventory' sheet is updated.
+After 1 minute, when the orders are dispatched, the node_sub_mqtt_client.py node receives these orders. It stores the orders in the parameter server
+and sends a goal to update the 'Incoming Orders' spreadsheet.
+
+(Note: Every time a node sends a goal, it is processed in the node_action_server_ros_iot_bridge.py node and the spreadsheet is updated here itself
+The goal payload contains information as to which sheet the data must be published to)
+
+As soon as an order is detected in the parameter server, ur5_1 begins to meet that order. It updates its order list locally and rearranges this list so that
+the highest priority order is met first. Ur5_1 picks up the necessary package and places it on the conveyor belt. It then starts the belt to
+transport the package to the ur5_2. Finally it sends goals to update the 'Orders Dispatched' sheet.
+
+When the node node_conveyor.py senses a package in the desired location on the conveyor belt in front of ur5_2, it stops the belt.
+The node node_ur5_2.py then compares the model name detected by the logical camera 2 with the model name-colour map that was saved in the
+parameter server earlier. Depending on its colour, it deposits the package in the desired bin.
+
+As soon as the package is lifted off the belt by ur5_2, the belt is restarted. Finally, node_ur5_2.py sends a goal to update the 'Orders Shipped' spreadsheet.
+The dashboard spreadsheet is updated through google app scripting. Based on the values in the other 4 spreadsheets, it updates itself.
+From the dashboard sheet, a json endpoint is generated. This json endpoint is used to change the values and graphs in the web page.
+
+:rqt graph:
+
+.. image:: intro/rosgraph.png

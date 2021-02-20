@@ -1,0 +1,477 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html4" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>node_ur5_2 module &mdash; Task 5  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Config" href="config.html" />
+    <link rel="prev" title="node_ur5_1 module" href="node_ur5_1.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Task 5
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../intro.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../imp.html">Implementation</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../api_doc.html">API Documentation</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="modules.html">pkg_task5</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="scripts.html">Scripts</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="RepMeth.html">RepMeth module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="node_camera.html">node_camera module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="node_conveyor.html">node_conveyor module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="node_sub_mqtt_client.html">node_sub_mqtt_client module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="node_ur5_1.html">node_ur5_1 module</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">node_ur5_2 module</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="config.html">Config</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../ros_iot_bridge_rst/modules.html">pkg_ros_iot_bridge</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Task 5</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../api_doc.html">API Documentation</a> &raquo;</li>
+        
+          <li><a href="modules.html">pkg_task5</a> &raquo;</li>
+        
+          <li><a href="scripts.html">Scripts</a> &raquo;</li>
+        
+      <li>node_ur5_2 module</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../_sources/task5_rst/node_ur5_2.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="module-node_ur5_2">
+<span id="node-ur5-2-module"></span><h1>node_ur5_2 module<a class="headerlink" href="#module-node_ur5_2" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="node_ur5_2.UR5_2">
+<em class="property">class </em><code class="descclassname">node_ur5_2.</code><code class="descname">UR5_2</code><span class="sig-paren">(</span><em>arg_robot_name</em><span class="sig-paren">)</span><a class="headerlink" href="#node_ur5_2.UR5_2" title="Permalink to this definition">¶</a></dt>
+<dd><p>A class for controlling UR5_2 Arm</p>
+<dl class="method">
+<dt id="node_ur5_2.UR5_2.arm_manager">
+<code class="descname">arm_manager</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#node_ur5_2.UR5_2.arm_manager" title="Permalink to this definition">¶</a></dt>
+<dd><p>Function that aligns the end effector with the package</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="node_ur5_2.UR5_2.clear_octomap">
+<code class="descname">clear_octomap</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#node_ur5_2.UR5_2.clear_octomap" title="Permalink to this definition">¶</a></dt>
+<dd><p>Octomap</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">clear _octomap service proxy</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">function</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="node_ur5_2.UR5_2.conveyor_manager">
+<code class="descname">conveyor_manager</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#node_ur5_2.UR5_2.conveyor_manager" title="Permalink to this definition">¶</a></dt>
+<dd><p>Function that is used to stop the conveyor belt when the package reaches the desired postition</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="node_ur5_2.UR5_2.ee_cartesian_translation">
+<code class="descname">ee_cartesian_translation</code><span class="sig-paren">(</span><em>trans_x</em>, <em>trans_y</em>, <em>trans_z</em><span class="sig-paren">)</span><a class="headerlink" href="#node_ur5_2.UR5_2.ee_cartesian_translation" title="Permalink to this definition">¶</a></dt>
+<dd><p>Function to move arm along a cartestian path</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>trans_x</strong> (<em>float</em>) – tranlation x</li>
+<li><strong>trans_y</strong> (<em>float</em>) – translation y</li>
+<li><strong>trans_z</strong> (<em>float</em>) – translation z</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">boolean</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">path computed state</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="node_ur5_2.UR5_2.hard_set_joint_angles">
+<code class="descname">hard_set_joint_angles</code><span class="sig-paren">(</span><em>arg_list_joint_angles</em>, <em>arg_max_attempts</em><span class="sig-paren">)</span><a class="headerlink" href="#node_ur5_2.UR5_2.hard_set_joint_angles" title="Permalink to this definition">¶</a></dt>
+<dd><p>Function to move arm by hard setting joint angles</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>arg_list_joint_angles</strong> (<em>list</em>) – joint angles</li>
+<li><strong>arg_max_attempts</strong> (<em>int</em>) – maximum number of attempts</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="node_ur5_2.UR5_2.logical_cam_sub_callback">
+<code class="descname">logical_cam_sub_callback</code><span class="sig-paren">(</span><em>msg</em><span class="sig-paren">)</span><a class="headerlink" href="#node_ur5_2.UR5_2.logical_cam_sub_callback" title="Permalink to this definition">¶</a></dt>
+<dd><p>Logical Camera Subscription Callback Function</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>msg</strong> (<em>dict</em>) – message from topic</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="node_ur5_2.UR5_2.moveit_hard_play_planned_path_from_file">
+<code class="descname">moveit_hard_play_planned_path_from_file</code><span class="sig-paren">(</span><em>arg_file_path</em>, <em>arg_file_name</em>, <em>arg_max_attempts</em><span class="sig-paren">)</span><a class="headerlink" href="#node_ur5_2.UR5_2.moveit_hard_play_planned_path_from_file" title="Permalink to this definition">¶</a></dt>
+<dd><p>Hard play saved trajectories from file</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>arg_file_path</strong> (<em>str</em>) – path to yaml file</li>
+<li><strong>arg_file_name</strong> (<em>str</em>) – file name</li>
+<li><strong>arg_max_attempts</strong> (<em>int</em>) – maximum number of attempts</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">Success or Fail</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">boolean</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="node_ur5_2.UR5_2.moveit_play_planned_path_from_file">
+<code class="descname">moveit_play_planned_path_from_file</code><span class="sig-paren">(</span><em>arg_file_path</em>, <em>arg_file_name</em><span class="sig-paren">)</span><a class="headerlink" href="#node_ur5_2.UR5_2.moveit_play_planned_path_from_file" title="Permalink to this definition">¶</a></dt>
+<dd><p>Hard play saved trajectories from file</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>arg_file_path</strong> (<em>str</em>) – path to yaml file</li>
+<li><strong>arg_file_name</strong> (<em>str</em>) – file name</li>
+<li><strong>arg_max_attempts</strong> (<em>int</em>) – maximum number of attempts</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">plan</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">plan</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="node_ur5_2.UR5_2.package_drop">
+<code class="descname">package_drop</code><span class="sig-paren">(</span><em>color</em><span class="sig-paren">)</span><a class="headerlink" href="#node_ur5_2.UR5_2.package_drop" title="Permalink to this definition">¶</a></dt>
+<dd><p>Function that manages the arm to go to bin position and drop package</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>color</strong> (<em>str</em>) – color of box</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">Completion</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">boolean</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="node_ur5_2.UR5_2.set_joint_angles">
+<code class="descname">set_joint_angles</code><span class="sig-paren">(</span><em>arg_list_joint_angles</em><span class="sig-paren">)</span><a class="headerlink" href="#node_ur5_2.UR5_2.set_joint_angles" title="Permalink to this definition">¶</a></dt>
+<dd><p>Function to move arm by hard setting joint angles</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>arg_list_joint_angles</strong> (<em>list</em>) – joint angles</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="node_ur5_2.UR5_2.ship_order">
+<code class="descname">ship_order</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#node_ur5_2.UR5_2.ship_order" title="Permalink to this definition">¶</a></dt>
+<dd><p>Generate message to send goal to push to sheet</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="node_ur5_2.UR5_2.vacuum_gripper">
+<code class="descname">vacuum_gripper</code><span class="sig-paren">(</span><em>state</em><span class="sig-paren">)</span><a class="headerlink" href="#node_ur5_2.UR5_2.vacuum_gripper" title="Permalink to this definition">¶</a></dt>
+<dd><p>Function to activate or deactivate vaccum gripper</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>state</strong> (<em>boolean</em>) – state of gripper to be executed</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="function">
+<dt id="node_ur5_2.get_time_str">
+<code class="descclassname">node_ur5_2.</code><code class="descname">get_time_str</code><span class="sig-paren">(</span><em>day</em><span class="sig-paren">)</span><a class="headerlink" href="#node_ur5_2.get_time_str" title="Permalink to this definition">¶</a></dt>
+<dd><p>Function to get Current Time</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>day</strong> (<em>int</em>) – estimated time of delivery</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">Time String</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">str</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="node_ur5_2.main">
+<code class="descclassname">node_ur5_2.</code><code class="descname">main</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#node_ur5_2.main" title="Permalink to this definition">¶</a></dt>
+<dd><p>Object Creation main execution of node</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>argv</strong> (<em>list</em>) – sys argv</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="node_ur5_2.pub_mqtt">
+<code class="descclassname">node_ur5_2.</code><code class="descname">pub_mqtt</code><span class="sig-paren">(</span><em>msg</em>, <em>goal_id</em><span class="sig-paren">)</span><a class="headerlink" href="#node_ur5_2.pub_mqtt" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sends a goal to Action Server</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>msg</strong> (<em>str</em>) – message to be pushed to spreadsheet</li>
+<li><strong>goal_id</strong> (<em>int</em>) – goal id</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="config.html" class="btn btn-neutral float-right" title="Config" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="node_ur5_1.html" class="btn btn-neutral float-left" title="node_ur5_1 module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2021, 0393.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

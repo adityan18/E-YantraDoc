@@ -1,0 +1,407 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html4" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>Implementation &mdash; Task 5  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="API Documentation" href="api_doc.html" />
+    <link rel="prev" title="Simulation" href="intro/sim.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> Task 5
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="intro.html">Introduction</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Implementation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#files">Files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#working">Working</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="api_doc.html">API Documentation</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Task 5</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Implementation</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="_sources/imp.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="implementation">
+<h1>Implementation<a class="headerlink" href="#implementation" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="files">
+<h2>Files<a class="headerlink" href="#files" title="Permalink to this headline">¶</a></h2>
+<p>Before we look at the implementation of the entire task, we must understand the implementation of each node individually first.</p>
+<ul>
+<li><p class="first">pkg_task5 package:</p>
+<blockquote>
+<div><ul>
+<li><p class="first">Nodes:</p>
+<blockquote>
+<div><dl class="docutils">
+<dt><a class="reference external" href="task5_rst/RepMeth.html">RepMeth.py</a></dt>
+<dd><p class="first last">It is an action client class that is reused by several nodes whenever there is a need to send a goal to the action server.</p>
+</dd>
+<dt><a class="reference external" href="task5_rst/node_camera.html">node_camera.py</a></dt>
+<dd><p class="first">This node consists of 2 classes.
+The first class, Camera1, handles the identification of packages in the inventory (shelf).</p>
+<ul>
+<li><p class="first">It splits the image obtained by the camera 1 into 12 parts, each capturing one of the boxes in the shelf.</p>
+</li>
+<li><p class="first">It then finds the most dominant colour in each part (which is essentially the colour of the box), and stores all the colours in a dictionary in the format</p>
+<blockquote>
+<div><p>pkg_det[‘models’][&lt;name&gt;], where &lt;name&gt; is the name of the package (For example, packagen00,packagen01,etc)</p>
+<p>It then puts the contents of this dictionary into the parameter server using the method set_param.</p>
+</div></blockquote>
+</li>
+</ul>
+<p>The second class is the InventoryClient class.</p>
+<ul class="last simple">
+<li>It gets the models/colour information from the parameter server(which was updated by the Camera1 class)</li>
+<li>It initializes all the necessary details such as priority, item(type), code, cost,etc.</li>
+<li>It sends goals for each of the 12 boxes to the action server (node_action_server_ros_iot_bridge.py),
+which processes the goal and updates the inventory spreadsheet.</li>
+</ul>
+</dd>
+<dt><a class="reference external" href="task5_rst/node_conveyor.html">node_conveyor.py</a></dt>
+<dd><p class="first">This node is used to move or halt the conveyor belt.
+It also obtains messages from the logical camera.</p>
+<ul class="last simple">
+<li>The logical camera focuses on the conveyor belt in front of ur5_2. Every time it finds a model, it calls its corresponding callback function.</li>
+<li>The callback function makes sure that the detected model is a package by comparing it to the known model names,
+and also makes sure that the packages detected are in the correct spot so that the ur5_2 can easily pick it.</li>
+</ul>
+</dd>
+<dt><a class="reference external" href="task5_rst/node_sub_mqtt_client.html">node_sub_mqtt_client.py</a></dt>
+<dd><p class="first last">This node subscribes to the mqtt topic for messages. These messages are the orders for packages. When the message is received,
+it extracts the needed information from the payload, and stores it in the parameter server.
+(In subsequent orders, it obtains the order array from the parameter server and appends the current order to it,
+and then re stores it in the parameter server)
+Using the payload, it then sends goals to an action server on obtaining an mqtt message in order to update the ‘incoming orders’ spreadsheet.</p>
+</dd>
+<dt><a class="reference external" href="task5_rst/node_ur5_1.html">node_ur5_1.py</a></dt>
+<dd><p class="first">This node has multiple objectives. However, its main objective is to look after the movement of ur5_1
+which picks packages from the shelf and puts them on the conveyor belt.</p>
+<ul class="last simple">
+<li>It initializes all the important parameters related to controlling ur5_1 such as planning group, end effector link, scene, etc.</li>
+<li>It initializes the vacuum gripper for ur5_1.</li>
+<li>It obtains the orders sent by the mqtt client from the parameter server (stored here previously).
+It sorts these based on priority and completes each order accordingly.</li>
+<li>Depending on the item type specified by the order (Medicine, food or clothing), the ur5_1 picks up a package and puts it on the conveyor belt.
+The trajectory of the ur5 to and from each package is saved inn a yaml file and played whenever needed.</li>
+<li>After dropping the package on the belt, it removes the respective order from the local order list,
+and sends a goal to an action server to update the Orders Dispatched sheet.</li>
+</ul>
+</dd>
+<dt><a class="reference external" href="task5_rst/node_ur5_2.html">node_ur5_2.py</a></dt>
+<dd><p class="first">This node is used to control the ur5_2 arm, which picks the packages from the conveyor belt and puts them in the required bin.</p>
+<ul class="last simple">
+<li>It initializes all the important parameters related to controlling ur5_2 such as planning group, end effector link, scene, etc.</li>
+<li>It initializes the vacuum gripper for ur5_1.</li>
+<li>When the package moves to the desired location on the conveyor belt, the belt is stopped.
+The arm moves to the desired location on top of the package using a pre defined trajectory, picks up the package and moves to one of the 3 bins
+based on the colour of the package. It then drops the package into the bin.</li>
+<li>After dropping the package in the bin, it sends a goal to an action server to update the Orders Shipped sheet.</li>
+</ul>
+</dd>
+</dl>
+</div></blockquote>
+</li>
+<li><p class="first">Launch files:</p>
+<blockquote>
+<div><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">task5_solution.launch:</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"><p class="first">This launch file launches the gazebo and rviz environments for task 5. It also launches the ros_iot_bridge.launch file, which will be discussed later.
+It is also used to start the following nodes when the rviz and gazebo environments start up:</p>
+<ul class="last simple">
+<li>node_camera</li>
+<li>node_sub_mqtt_client</li>
+<li>node_ur5_1</li>
+<li>node_ur5_2</li>
+<li>node_conveyor</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</div></blockquote>
+</li>
+<li><p class="first">Config:</p>
+<blockquote>
+<div><dl class="docutils">
+<dt><a class="reference external" href="task5_rst/config.html">rviz folder</a></dt>
+<dd><p class="first last">Contains the shelf file for rviz environment</p>
+</dd>
+<dt><a class="reference external" href="task5_rst/config.html">saved_trajectories folder</a></dt>
+<dd><p class="first last">Contains the YAML files for all the saved trajectories needed to move the ur5_1 and ur5_2.</p>
+</dd>
+</dl>
+</div></blockquote>
+</li>
+</ul>
+</div></blockquote>
+</li>
+<li><p class="first">pkg_ros_iot_bridge package</p>
+<ul>
+<li><p class="first">Nodes:</p>
+<blockquote>
+<div><dl class="docutils">
+<dt><a class="reference external" href="ros_iot_bridge_rst/iot.html">iot.py</a></dt>
+<dd><p class="first last">Initializes method to push the required data onto a spreadsheet.
+It accepts the different parameters that are to be published on the sheet and also the name of the sheet.</p>
+</dd>
+<dt><a class="reference external" href="ros_iot_bridge_rst/node_action_server_ros_iot_bridge.html">node_action_server_ros_iot_bridge</a></dt>
+<dd><p class="first">This node handles all the goals being sent by various nodes.
+Depending on the type of goal sent to the node, it may process it in 4 different ways:</p>
+<ul class="simple">
+<li>For Inventory</li>
+<li>For Incoming Orders</li>
+<li>For Orders Dispatched</li>
+<li>For Orders Shipped</li>
+</ul>
+<p class="last">It initializes all the necessary parameters for each category and pushes it to the spreadsheet using the push_ss method from iot.py node.</p>
+</dd>
+</dl>
+</div></blockquote>
+</li>
+<li><p class="first">Launch files:</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">ros_iot_bridge.launch:</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"><ul class="first last simple">
+<li>Loads parameters into the parameter server for MQTT</li>
+<li>Starts the node_action_server_ros_iot_bridge node.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</li>
+<li><p class="first">Config:</p>
+<dl class="docutils">
+<dt><a class="reference external" href="ros_iot_bridge_rst/config.html">config_pyiot.yaml</a></dt>
+<dd><p class="first last">Launches several parameters needed for MQTT communication into the parameter server (such as mqtt subscription topic, mqtt publishing topic, etc)</p>
+</dd>
+</dl>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="working">
+<h2>Working<a class="headerlink" href="#working" title="Permalink to this headline">¶</a></h2>
+<p>By launching the task5_solution.launch launch file, all the necessary nodes and launch files are started. The node_camera.py node identifies the packages on the shelf
+and stores the necessary values (it maps model name with its colour and stores it in a dictionary) in the parameter server. As the packages are identified, the ‘Inventory’ sheet is updated.
+After 1 minute, when the orders are dispatched, the node_sub_mqtt_client.py node receives these orders. It stores the orders in the parameter server
+and sends a goal to update the ‘Incoming Orders’ spreadsheet.</p>
+<p>(Note: Every time a node sends a goal, it is processed in the node_action_server_ros_iot_bridge.py node and the spreadsheet is updated here itself
+The goal payload contains information as to which sheet the data must be published to)</p>
+<p>As soon as an order is detected in the parameter server, ur5_1 begins to meet that order. It updates its order list locally and rearranges this list so that
+the highest priority order is met first. Ur5_1 picks up the necessary package and places it on the conveyor belt. It then starts the belt to
+transport the package to the ur5_2. Finally it sends goals to update the ‘Orders Dispatched’ sheet.</p>
+<p>When the node node_conveyor.py senses a package in the desired location on the conveyor belt in front of ur5_2, it stops the belt.
+The node node_ur5_2.py then compares the model name detected by the logical camera 2 with the model name-colour map that was saved in the
+parameter server earlier. Depending on its colour, it deposits the package in the desired bin.</p>
+<p>As soon as the package is lifted off the belt by ur5_2, the belt is restarted. Finally, node_ur5_2.py sends a goal to update the ‘Orders Shipped’ spreadsheet.
+The dashboard spreadsheet is updated through google app scripting. Based on the values in the other 4 spreadsheets, it updates itself.
+From the dashboard sheet, a json endpoint is generated. This json endpoint is used to change the values and graphs in the web page.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">rqt graph:</th><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+<img alt="_images/rosgraph.png" src="_images/rosgraph.png" />
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="api_doc.html" class="btn btn-neutral float-right" title="API Documentation" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="intro/sim.html" class="btn btn-neutral float-left" title="Simulation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2021, 0393.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

@@ -1,0 +1,8 @@
+Introduction
+============
+
+.. toctree::
+    intro/summary
+    intro/sim
+
+

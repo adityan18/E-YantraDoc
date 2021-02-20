@@ -1,0 +1,51 @@
+Config
+------
+
+
+RVIZ
+~~~~
+
+:shelf.scene: This rviz configuration file is used to place objects on rviz planning scene to avoid collisions.
+
+.. image:: shelf.png
+
+YAML Files
+~~~~~~~~~~
+NOTE:
+        Home position:
+                :UR5_1: Position at which the package is dropped on the conveyor belt.
+
+                :UR5_2: Position at which the package is picked up from the conveyor belt.
+
+:zero_to_home: The file contains the joint angles for the UR5_1 arm to execute the path from the initial rest position to the home position.
+:00_to_home: The file contains the joint angles for the UR5_1 arm to execute the path from the package at (ROW0, COL0) to the home position.
+:01_to_home: The file contains the joint angles for the UR5_1 arm to execute the path from the package at (ROW0, COL1) to the home position.
+:02_to_home: The file contains the joint angles for the UR5_1 arm to execute the path from the package at (ROW0, COL2) to the home position.
+:10_to_home: The file contains the joint angles for the UR5_1 arm to execute the path from the package at (ROW1, COL0) to the home position.
+:11_to_home: The file contains the joint angles for the UR5_1 arm to execute the path from the package at (ROW1, COL1) to the home position.
+:12_to_home: The file contains the joint angles for the UR5_1 arm to execute the path from the package at (ROW1, COL2) to the home position.
+:20_to_1: The file contains the joint angles for the UR5_1 arm to execute the path from the package at (ROW2, COL0) to a position that acts as a waypoint to the home position.
+:20_1_to_home: The file contains the joint angles for the UR5_1 arm to execute the path from the waypoint for 20_to_1 to the home position.
+:21_to_home: The file contains the joint angles for the UR5_1 arm to execute the path from the package at (ROW2, COL1) to the home position.
+:22_to_home: The file contains the joint angles for the UR5_1 arm to execute the path from the package at (ROW2, COL2) to the home position.
+:30_to_home: The file contains the joint angles for the UR5_1 arm to execute the path from the package at (ROW3, COL0) to the home position.
+:32_to_1: The file contains the joint angles for the UR5_1 arm to execute the path from the package at (ROW3, COL2) to a position that acts as a waypoint to the home position.
+:32_1_to_home: The file contains the joint angles for the UR5_1 arm to execute the path from the waypoint for 32_to_1 to the home position.
+:home_to_00: The file contains the joint angles for the UR5_1 arm to execute the path from the home position to the package at (ROW0, COL0).
+:home_to_01: The file contains the joint angles for the UR5_1 arm to execute the path from the home position to the package at (ROW0, COL1).
+:home_to_02: The file contains the joint angles for the UR5_1 arm to execute the path from the home position to the package at (ROW0, COL2).
+:home_to_10: The file contains the joint angles for the UR5_1 arm to execute the path from the home position to the package at (ROW1, COL0).
+:home_to_11: The file contains the joint angles for the UR5_1 arm to execute the path from the home position to the package at (ROW1, COL1).
+:home_to_12: The file contains the joint angles for the UR5_1 arm to execute the path from the home position to the package at (ROW1, COL2).
+:home_to_20: The file contains the joint angles for the UR5_1 arm to execute the path from the home position to the package at (ROW2, COL0).
+:home_to_21: The file contains the joint angles for the UR5_1 arm to execute the path from the home position to the package at (ROW2, COL1).
+:home_to_22: The file contains the joint angles for the UR5_1 arm to execute the path from the home position to the package at (ROW2, COL2).
+:home_to_30: The file contains the joint angles for the UR5_1 arm to execute the path from the home position to the package at (ROW3, COL0).
+:home_to_32: The file contains the joint angles for the UR5_1 arm to execute the path from the home position to the package at (ROW3, COL2).
+:zero_to_home_2: The file contains the joint angles for the UR5_2 arm to execute the path from the initial rest position to the home position.
+:home_to_green: The file contains the joint angles for the UR5_2 arm to execute the path from the home position to the drop position for the green bin.
+:home_to_red: The file contains the joint angles for the UR5_2 arm to execute the path from the home position to the drop position for the red bin.
+:home_to_yellow: The file contains the joint angles for the UR5_2 arm to execute the path from the home position to the drop position for the yellow bin.
+:green_to_home: The file contains the joint angles for the UR5_2 arm to execute the path from the drop position for the green bin to the home position.
+:yellow_to_home: The file contains the joint angles for the UR5_2 arm to execute the path from the drop position for the yellow bin to the home position.
+:red_to_home: The file contains the joint angles for the UR5_2 arm to execute the path from the drop position for the red bin to the home position.
